@@ -93,7 +93,7 @@ const Page = () => {
       <img
         src="https://learn.g2.com/hubfs/food%20delivery%20tech%20gloss-ai.jpg"
         alt=""
-        className="w-[850px] h-[667px] object-cover rounded-md"
+        className="w-[850px] h-[667px] object-cover rounded-md "
       />
     </div>
   );
