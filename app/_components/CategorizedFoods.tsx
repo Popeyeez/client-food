@@ -12,7 +12,7 @@ export const CategorizedFoods = ({
     <div className="bg-[#404040] rounded-md mx-8 mt-5 ">
       <div className="p-4 rounded-lg bg-[#404040] text-white">
         <h2 className="font-semibold text-[30px] mx-8 capitalize">
-          {category.name}
+          {category?.name}
         </h2>
         <div className="flex flex-wrap gap-8 p-8 items-center">
           {foods.map((food: FoodType) => (
