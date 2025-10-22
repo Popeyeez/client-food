@@ -28,9 +28,9 @@ export default function Page() {
   const getFoods = async () => {
     const res = await fetch("https://backend-food-seven.vercel.app/api/foods");
     const json = await res.json();
-    if (Array.isArray(json.data)) {
-      setFoods(json.data);
-    }
+    console.log("foods json:", json);
+    const foodsArray = Array.isArray(json.data) ? json.data : [];
+    setFoods(foodsArray);
   };
 
   useEffect(() => {
@@ -49,7 +49,11 @@ export default function Page() {
           <CategorizedFoods
             key={category._id}
             refetchFoods={() => getFoods()}
-            foods={foods.filter((food) => food.categoryId == category._id)}
+            foods={foods.filter((food) =>
+              typeof food.categoryId === "string"
+                ? food.categoryId === category._id
+                : food.categoryId?._id === category._id
+            )}
             category={category}
           />
         );
